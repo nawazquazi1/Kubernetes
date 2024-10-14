@@ -1,23 +1,48 @@
  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# Kubernetes Commands
 
+# Cluster Information
+kubectl cluster-info # show cluster info
+kubectl get nodes # list all nodes in the cluster
 
+# Pods Management
+kubectl get pods # list all pods in default namespace
+kubectl get pods -n my-namespace # list pods in a specific namespace
+kubectl describe pod my-pod # show detailed information about a specific pod
+kubectl delete pod my-pod # delete a pod
 
+# Deployment Management
+kubectl create deployment my-deployment --image=my-image:v1 # create a deployment
+kubectl get deployments # list all deployments
+kubectl scale deployment my-deployment --replicas=3 # scale the deployment to 3 replicas
+kubectl set image deployment/my-deployment my-container=my-image:v2 # update container image for a deployment
 
+# Services Management
+kubectl expose deployment my-deployment --type=LoadBalancer --port=80 # expose a deployment via LoadBalancer
+kubectl get services # list all services
+kubectl delete service my-service # delete a service
 
+# ConfigMaps and Secrets
+kubectl create configmap my-config --from-literal=key1=value1 # create ConfigMap from literal
+kubectl get configmaps # list all ConfigMaps
+kubectl create secret generic my-secret --from-literal=password=my-password # create a secret
+kubectl get secrets # list all secrets
 
+# Namespaces Management
+kubectl create namespace my-namespace # create a namespace
+kubectl get namespaces # list all namespaces
+kubectl delete namespace my-namespace # delete a namespace
 
+# Logs and Debugging
+kubectl logs my-pod # show logs from a pod
+kubectl get events # list events for all pods
+kubectl exec -it my-pod -- /bin/bash # open a shell into a running pod
 
-
-
-
-
-
-
-
-
-
-
+# Config Files and Resources
+kubectl apply -f config.yaml # apply configuration from a YAML file
+kubectl delete -f config.yaml # delete resources defined in YAML
+kubectl top pods # show CPU and memory usage for pods
 
  # # # # # # # # # # # # # # # # # #  # # # # # # # #  # # # # # # # #
 
